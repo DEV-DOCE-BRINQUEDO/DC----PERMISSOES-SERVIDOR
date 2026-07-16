@@ -1,0 +1,223 @@
+@use '@angular/material' as mat;
+
+/* ========================================
+   GOOGLE FONTS
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* ========================================
+   DESIGN TOKENS — DARK THEME (padrao)
+   ======================================== */
+:root {
+  /* Backgrounds */
+  --bg-primary: #0a0a0f;
+  --bg-surface: #111118;
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  
+  /* Borders */
+  --border-color: rgba(255, 255, 255, 0.08);
+  
+  /* Text */
+  --text-primary: #f1f1f3;
+  --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
+  
+  /* Accent — Indigo/Violet */
+  --accent-color: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-bg: rgba(99, 102, 241, 0.1);
+  --accent-glow: rgba(99, 102, 241, 0.25);
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================
+   DESIGN TOKENS — LIGHT THEME
+   ======================================== */
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-primary: #f0f2f8;
+  --bg-surface: #ffffff;
+  --bg-hover: rgba(0, 0, 0, 0.04);
+
+  /* Borders */
+  --border-color: rgba(0, 0, 0, 0.1);
+
+  /* Text */
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --text-muted: #9090a8;
+
+  /* Accent — mantém roxo mas mais vibrante no light */
+  --accent-color: #5558e3;
+  --accent-hover: #4346cc;
+  --accent-bg: rgba(99, 102, 241, 0.08);
+  --accent-glow: rgba(99, 102, 241, 0.2);
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   ANGULAR MATERIAL — DARK OVERRIDES
+   ======================================== */
+
+/* Form Fields */
+.mat-mdc-form-field {
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: var(--border-color) !important;
+  }
+  &:hover .mdc-notched-outline__leading,
+  &:hover .mdc-notched-outline__notch,
+  &:hover .mdc-notched-outline__trailing {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  &.mat-focused .mdc-notched-outline__leading,
+  &.mat-focused .mdc-notched-outline__notch,
+  &.mat-focused .mdc-notched-outline__trailing {
+    border-color: var(--accent-color) !important;
+  }
+  .mat-mdc-input-element,
+  .mat-mdc-select-value-text { color: var(--text-primary) !important; }
+  .mat-mdc-floating-label { color: var(--text-muted) !important; }
+  &.mat-focused .mat-mdc-floating-label { color: var(--accent-color) !important; }
+  .mat-mdc-form-field-icon-suffix mat-icon { color: var(--text-muted); }
+  background: transparent !important;
+}
+.mat-mdc-select-panel {
+  background: #1a1a24 !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 10px !important;
+}
+.mat-mdc-option { color: var(--text-primary) !important; }
+.mat-mdc-option:hover { background: var(--bg-hover) !important; }
+.mat-mdc-option.mat-selected { color: var(--accent-color) !important; background: var(--accent-bg) !important; }
+
+/* Dialogs */
+.mat-mdc-dialog-container {
+  .mdc-dialog__surface {
+    background: #111118 !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* Snackbar */
+.mat-mdc-snack-bar-container {
+  .mdc-snackbar__surface {
+    background: #1e1e2e !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+  }
+  .mat-mdc-button { color: var(--accent-color) !important; }
+}
+
+/* Buttons */
+.mat-mdc-icon-button { color: var(--text-secondary) !important; }
+.mat-mdc-icon-button:hover { background: var(--bg-hover) !important; }
+.mat-mdc-stroked-button {
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+  &:hover { background: var(--bg-hover) !important; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); }
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
+
+/* ========================================
+   ANGULAR MATERIAL — LIGHT THEME OVERRIDES
+   ======================================== */
+[data-theme="light"] {
+  /* Form fields */
+  .mat-mdc-form-field {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: var(--border-color) !important;
+    }
+    &:hover .mdc-notched-outline__leading,
+    &:hover .mdc-notched-outline__notch,
+    &:hover .mdc-notched-outline__trailing {
+      border-color: rgba(0, 0, 0, 0.25) !important;
+    }
+    .mat-mdc-input-element,
+    .mat-mdc-select-value-text { color: var(--text-primary) !important; }
+    .mat-mdc-floating-label { color: var(--text-muted) !important; }
+  }
+
+  /* Select panel */
+  .mat-mdc-select-panel {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+  }
+  .mat-mdc-option { color: var(--text-primary) !important; }
+  .mat-mdc-option:hover { background: var(--bg-hover) !important; }
+  .mat-mdc-option.mat-selected { color: var(--accent-color) !important; background: var(--accent-bg) !important; }
+
+  /* Dialog */
+  .mat-mdc-dialog-container .mdc-dialog__surface {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+  }
+
+  /* Snackbar */
+  .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Botoes */
+  .mat-mdc-icon-button { color: var(--text-secondary) !important; }
+  .mat-mdc-stroked-button {
+    border-color: var(--border-color) !important;
+    color: var(--text-secondary) !important;
+  }
+}
+
+/* ========================================
+   TRANSICAO SUAVE DE TEMA
+   ======================================== */
+html {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.loading-wrap { display: flex; flex-direction: column; gap: 8px; }

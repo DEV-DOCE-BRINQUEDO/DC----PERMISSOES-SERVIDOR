@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+*/node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build outputs
+dist/
+.angular/
+
+# Environment / secrets
+.env
+*.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# SQLite database (dados sensíveis — não sobe para o repo)
+backend/src/data/db.sqlite
+backend/db.sqlite
+
+# Seed scripts de teste (opcionais)
+backend/seed.js
+backend/seed_nested.js
+
+# VS Code
+.vscode/settings.json
+
+# Temporary PowerShell test scripts
+backend/*.ps1
+backend/test-*.js

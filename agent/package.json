@@ -1,0 +1,13 @@
+{
+  "name": "dc-manager-agent",
+  "version": "1.0.0",
+  "description": "DC Manager Agent for local Active Directory/NTDS and directory ACL extraction",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

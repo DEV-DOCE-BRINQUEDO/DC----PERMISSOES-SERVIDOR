@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Administrador",
+      "email": "admin@servidor.local",
+      "username": "admin",
+      "status": "active",
+      "role": "admin",
+      "groups": [
+        "1"
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "João Silva",
+      "email": "joao.silva@servidor.local",
+      "username": "jsilva",
+      "status": "active",
+      "role": "user",
+      "groups": [
+        "2"
+      ],
+      "createdAt": "2024-01-15T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Maria Santos",
+      "email": "maria.santos@servidor.local",
+      "username": "msantos",
+      "status": "inactive",
+      "role": "user",
+      "groups": [
+        "2",
+        "3"
+      ],
+      "createdAt": "2024-02-10T00:00:00.000Z"
+    }
+  ],
+  "groups": [
+    {
+      "id": "1",
+      "name": "Administradores",
+      "description": "Acesso total ao sistema",
+      "members": [
+        "1"
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Desenvolvedores",
+      "description": "Equipe de desenvolvimento",
+      "members": [
+        "2",
+        "3"
+      ],
+      "createdAt": "2024-01-05T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Suporte",
+      "description": "Equipe de suporte técnico",
+      "members": [
+        "3"
+      ],
+      "createdAt": "2024-01-10T00:00:00.000Z"
+    }
+  ],
+  "permissions": [],
+  "folders": [],
+  "servers": [
+    {
+      "id": "server-2",
+      "name": "P&G",
+      "ip": "192.168.1.12",
+      "username": "administrador",
+      "password": "@2025Familia",
+      "createdAt": "2026-07-14T11:33:02.869Z",
+      "rootPath": "D:\\",
+      "updatedAt": "2026-07-14T12:59:07.669Z"
+    }
+  ]
+}
